@@ -29,6 +29,12 @@
     <Filter Include="Scene\Title">
       <UniqueIdentifier>{0594053e-6197-4017-b92e-0494846d7203}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Clear">
+      <UniqueIdentifier>{d80a865d-c293-4625-8fe1-255904c827ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\GameOver">
+      <UniqueIdentifier>{a59ca4d8-7854-45f0-9b69-617e7960776e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -52,6 +58,12 @@
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>Scene\Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Scene\GameOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +166,12 @@
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>Scene\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>Scene\GameOver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

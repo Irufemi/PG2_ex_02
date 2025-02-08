@@ -1,6 +1,8 @@
 #include "Scene.h"
 #include "TitleScene.h"
 #include "InGameScene.h"
+#include "ClearScene.h"
+#include "GameOverScene.h"
 
 // コンストラクタの実装
 SceneManager::SceneManager() : changeFlag(false), nextScene(SceneName::TITLE) {
@@ -22,7 +24,14 @@ void SceneManager::ChangeScene(SceneName sceneName) {
     case SceneName::INGAME:
         currentSceneInstance = std::make_unique<InGameScene>();
         break;
+    case SceneName::CLEAR:
+        currentSceneInstance = std::make_unique<ClearScene>();
+        break;
+    case SceneName::GAMEOVER:
+        currentSceneInstance = std::make_unique<GameOverScene>();
+        break;
     }
+
 }
 
 // 現在のシーンを更新するメソッドの実装

@@ -16,7 +16,9 @@ public: //メンバ関数
 
 enum class SceneName {
     TITLE, 
-    INGAME
+    INGAME,
+    CLEAR,
+    GAMEOVER
 };
 
 class SceneManager {

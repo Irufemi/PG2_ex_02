@@ -40,7 +40,7 @@ public: //メンバ関数
 	//描画
 	void Draw();
 	//生成
-	void Create();
+	void Create(Vector2<float> pos, char* keys);
 	//移動
 	void Move();
 	//衝突処理

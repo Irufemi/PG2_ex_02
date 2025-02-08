@@ -8,17 +8,21 @@ Player::Player() {
 	pos_.x = 640.0f;
 	pos_.y = 500.0f;
 	speed_ = 5.0f;
+	vector_ = { 0 };
 	velocity_ = { 0 };
 	width_ = 30.0f;
 	height_ = 30.0f;
 	radius_ = 15.0f;
 	texture_ = Novice::LoadTexture("white1x1.png");
 	bullet_ = new Bullet;
+	isAlive_ = true;
 }
 
 //デストラクタ
 Player::~Player() {
+
 	Novice::UnloadTexture(texture_);
+
 	delete bullet_;
 }
 
@@ -60,13 +64,9 @@ void Player::Draw() {
 
 //弾の発射
 void Player::Shot(char* keys) {
-	//SPACEキーが押されたら弾を生成する
-	if (keys[DIK_SPACE]) {
-		bullet_->Create();
-	}
 
-	//生成されている弾の更新
-	bullet_->Update();
+	bullet_->Create(pos_,keys);
+	
 }
 
 //キー入力による移動
@@ -118,10 +118,10 @@ void Player::KeyMove(char* keys) {
 
 //衝突処理
 void Player::isHit(Enemy* enemy) {
-	
+
 	//敵に当たったら死亡する
 	if (isAlive_) {
-		for (int j = 0; j < 10; j++) {
+		for (int j = 0; j < 5; j++) {
 			if (enemy->GetIsAlive(j) == true) {
 				if (sqrtf(powf(enemy->GetPos(j).x - pos_.x, 2.0f) + powf(enemy->GetPos(j).y - pos_.y, 2.0f)) <= radius_ + enemy->GetRadius()) {
 					//生存フラグをfalseにする

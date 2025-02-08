@@ -5,22 +5,25 @@
 class Enemy {
 protected: //メンバ変数
 	//中心の位置。座標。
-	Vector2 <float> pos_[10];
+	Vector2 <float> pos_[5];
 
 	//自速
 	float speed_;
 
 	//向き
-	Vector2<float> vector_[10];
+	Vector2<float> vector_[5];
 
 	//速度
-	Vector2<float> velocity_[10];
+	Vector2<float> velocity_[5];
 
 	//半径
 	float radius_;
 
 	//生きているか
-	bool isAlive_[10];
+	bool isAlive_[5];
+
+	//リスポーンまでの時間
+	int respawnTime_;
 
 public: //メンバ関数
 

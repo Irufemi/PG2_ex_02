@@ -41,8 +41,8 @@ void InGameScene::Update(SceneManager& sceneManager) {
 	player_->isHit(enemy_);
 
 	// 何らかの条件でシーンを切り替える
-	if (flag_) {
-		sceneManager.SetChangeFlag(SceneName::TITLE);
+	if (player_->GetIsAlive()==false) {
+		sceneManager.SetChangeFlag(SceneName::GAMEOVER);
 	}
 
 }

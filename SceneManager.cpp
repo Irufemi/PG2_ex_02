@@ -4,14 +4,14 @@
 #include "ClearScene.h"
 #include "GameOverScene.h"
 
-// コンストラクタの実装
+// コンストラクタ
 SceneManager::SceneManager() : changeFlag(false), nextScene(SceneName::TITLE) {
     // 初期シーンを設定
     ChangeScene(SceneName::TITLE);
 
 }
 
-// シーンを変更するメソッドの実装
+// シーンを変更するメソッド
 void SceneManager::ChangeScene(SceneName sceneName) {
     // 現在のシーンを保存
     currentScene = sceneName;
@@ -34,7 +34,7 @@ void SceneManager::ChangeScene(SceneName sceneName) {
 
 }
 
-// 現在のシーンを更新するメソッドの実装
+// 現在のシーンを更新する
 void SceneManager::Update() {
     if (currentSceneInstance) {
         currentSceneInstance->Update(*this);  // SceneManagerへの参照を渡す
@@ -47,14 +47,14 @@ void SceneManager::Update() {
     }
 }
 
-// 現在のシーンを描画するメソッドの実装
+// 現在のシーンを描画する
 void SceneManager::Render() {
     if (currentSceneInstance) {
         currentSceneInstance->Render();
     }
 }
 
-// シーン変更フラグを設定するメソッドの実装
+// シーン変更フラグを設定する
 void SceneManager::SetChangeFlag(SceneName sceneName) {
     nextScene = sceneName;
     changeFlag = true;

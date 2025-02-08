@@ -37,6 +37,7 @@ public: //メンバ関数
 	
 	//ゲッター
 	Vector2 <float> GetBulletPos(int index) { return bullet_->GetPos(index); }
+	bool GetIsAlive() { return isAlive_; }
 	//更新
 	void Update(char* keys);
 	//描画

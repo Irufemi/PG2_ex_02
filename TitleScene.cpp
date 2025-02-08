@@ -26,6 +26,6 @@ void TitleScene::Update(SceneManager& sceneManager) {
 
 // タイトルシーンの描画メソッドの実装
 void TitleScene::Render() {
-	Novice::ScreenPrintf(620, 300, "AL2_ex_02");
+	Novice::ScreenPrintf(620, 300, "PG2_ex_02");
 	Novice::ScreenPrintf(600, 500, "Push to SPACE");
 }

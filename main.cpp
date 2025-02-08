@@ -1,7 +1,8 @@
 #include <Novice.h>
+#include <memory>
 #include "Scene.h"
 
-const char kWindowTitle[] = "LC1A_11_スエヒロ_コウイチ_タイトル";
+const char kWindowTitle[] = "LC1A_11_スエヒロ_コウイチ_PG2評価課題";
 const int kWindowWidth = 1280;
 const int kWindowHeight = 720;
 

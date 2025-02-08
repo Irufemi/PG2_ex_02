@@ -28,6 +28,8 @@ Enemy::Enemy() {
 	radius_ = 20.0f;
 
 	respawnTime_ = 120;
+
+	breakCount_ = 0;
 }
 
 //デストラクタ
@@ -82,9 +84,17 @@ void Enemy::AutoMove() {
 
 //リスポーン処理
 void Enemy::Respawn() {
+
+	//リスポーンまでの時間を減らす
 	respawnTime_--;
 
-	if (respawnTime_ <= 0) {
+	//０より小さい時０にする
+	if (respawnTime_ < 0) {
+		respawnTime_ = 0;
+	}
+
+	//０になっているとき死んでいる敵がいれば１体リスポーンさせる
+	if (respawnTime_ == 0) {
 		for (int i = 0; i < 5; i++) {
 			if (isAlive_[i] == false) {
 				pos_[i].x = 640.0f;

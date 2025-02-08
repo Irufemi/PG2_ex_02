@@ -25,6 +25,9 @@ protected: //メンバ変数
 	//リスポーンまでの時間
 	int respawnTime_;
 
+	//倒された数
+	int breakCount_;
+
 public: //メンバ関数
 
 	//コンストラクタ
@@ -36,10 +39,14 @@ public: //メンバ関数
 	//セッター
 	void SetIsDead(int index) { this->isAlive_[index] = false; }
 
+	//倒された回数を１増やす
+	void AddBreakCount() { this->breakCount_ += 1; }
+
 	//ゲッター
 	Vector2 <float> GetPos(int index) { return pos_[index]; }
 	float GetRadius() { return radius_; }
 	bool GetIsAlive(int index) { return isAlive_[index]; }
+	int GetBreakCount() { return breakCount_; }
 
 	//更新
 	void Update();

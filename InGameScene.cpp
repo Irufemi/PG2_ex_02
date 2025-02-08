@@ -16,8 +16,6 @@ InGameScene::InGameScene() {
 
 	enemy_ = new Enemy();
 
-	// シーン変更フラグの初期化
-	flag_ = false;
 }
 
 InGameScene::~InGameScene() {
@@ -40,8 +38,13 @@ void InGameScene::Update(SceneManager& sceneManager) {
 	//弾と自機と敵の当たり判定
 	player_->isHit(enemy_);
 
-	// 何らかの条件でシーンを切り替える
-	if (player_->GetIsAlive()==false) {
+	//敵を目標数倒したときにClearSceneに切り替える
+	if (enemy_->GetBreakCount() >= 10) {
+		sceneManager.SetChangeFlag(SceneName::CLEAR);
+	}
+
+	// 自機が死亡したときにGameOverSceneに切り替える
+	if (player_->GetIsAlive() == false) {
 		sceneManager.SetChangeFlag(SceneName::GAMEOVER);
 	}
 
@@ -55,5 +58,8 @@ void InGameScene::Render() {
 
 	//自機と弾の描画
 	player_->Draw();
+
+	//敵を撃破した数と目標数を / で仕切って表示する
+	Novice::ScreenPrintf(5, 5, "Enemy Break Count : %d / 10", enemy_->GetBreakCount());
 
 }

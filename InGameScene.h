@@ -12,8 +12,6 @@ class InGameScene : public Scene {
 protected: //メンバ変数
     Player* player_;
     Enemy* enemy_;
-	//シーン変更フラグ
-    bool flag_;
 public:
     InGameScene();
     ~InGameScene();

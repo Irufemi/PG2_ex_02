@@ -109,6 +109,7 @@ void Bullet::isHit(Enemy* enemy) {
 					if (sqrtf(powf(enemy->GetPos(j).x - pos_[i].x, 2.0f) + powf(enemy->GetPos(j).y - pos_[i].y, 2.0f)) <= radius_ + enemy->GetRadius()) {
 						isShoot_[i] = false;
 						enemy->SetIsDead(j);
+						enemy->AddBreakCount();
 					}
 				}
 			}

@@ -2,6 +2,10 @@
 #include "Vector2.h"
 #include "Bullet.h"
 
+//多重定義を防ぐために前方宣言
+
+class Enemy;
+
 class Player{
 protected: //メンバ変数
 	//中心の位置。座標。
@@ -16,8 +20,12 @@ protected: //メンバ変数
 	float width_;
 	//高さ
 	float height_;
+	//当たり判定の半径
+	float radius_;
 	//画像
 	int texture_;
+	//生きているか
+	bool isAlive_;
 	//弾
 	Bullet *bullet_;
 public: //メンバ関数
@@ -37,5 +45,7 @@ public: //メンバ関数
 	void Shot(char* keys);
 	//キー入力による移動
 	void KeyMove(char *keys);
+	//衝突処理
+	void isHit(Enemy *enemy);
 };
 

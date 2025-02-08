@@ -19,8 +19,12 @@ protected: //メンバ変数
 	Vector2 <float> vector_[20];
 	//速度
 	Vector2<float> velocity_[20];
+	//半径
+	float radius_;
 	//発射されているか
 	bool isShoot_[20];
+	//次弾が発射されるまでのクールタイム
+	int shotCoolTime_;
 
 public: //メンバ関数
 	//コンストラクタ

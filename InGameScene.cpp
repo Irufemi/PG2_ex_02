@@ -37,6 +37,9 @@ void InGameScene::Update(SceneManager& sceneManager) {
 	//敵の更新
 	enemy_->Update();
 
+	//弾と敵の当たり判定
+	player_->isHit(enemy_);
+
 	// 何らかの条件でシーンを切り替える
 	if (flag_) {
 		sceneManager.SetChangeFlag(SceneName::TITLE);
